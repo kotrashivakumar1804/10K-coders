@@ -1,0 +1,378 @@
+MySQL                                           application and it is a database
+MySQL server                          helps to make communication with MySQL server between  developer and database
+MySQL workbench(gui)        it is also like shell only but is gui base graphical user interface use mouse to operate
+MySQL shell(cui),       tool helps to communicate through the server using commands pure le cli base (command line interrupt
+sql                       we need to learn it to communicate with database
+
+
+
+database      database server    tools like shell,workbanch     developer
+
+
+MySQL is oracle take from sun micro system
+
+
+alternate name   
+
+db---schema,datastore,db
+table---entity,file,relation
+row---record,entry,tuple
+coloumn-----field,property,attribute
+
+
+
+database--->table--->column---->row
+folder----->file------>headeing------>line of data 
+
+
+
+by default MySQL server will be localhost
+
+
+it will be in sql JS we need to change sql \sql use this
+
+\c root@localhost ------> to connect with server
+password
+
+to see database show databases or schemas;
+
+use class---->use specific database
+
+create database ----> create database shiva;
+
+
+to clean scren---->ctrl+l
+
+
+
+
+
+datatypes in MYSQL
+
+1.character format  char(fixed)0-255ch,varchar(,text
+2.numeric format    int,
+3.date/time format
+4.boolean format                                    Positivr number-unsigned 0-255 negative-signed -128 to 127
+
+charatcter
+char - fixedlength   char(5),jhon-1,akhil it is full / EX data like username,productname,password
+varchar <= 65k varchar(5),space will be not Wasted - it will take required  amount memory /ex data like email,bankacc,ifsc 
+text - to store more like paragraphs / ex address,bios
+mediumtext-to store ~16mb paragraphs,small stores
+largetext -- 4gb syore like docement
+
+NUMERIC
+tinyint -  store signed -128 to 127 unsigned 0-255 occenpc 1bt of mrmory / ex user_id INT always accept ony int
+smallint-  store signed -32k to 32k unsigned 0-64k occenpc 1bt of mrmory / coloum_name SMALLINT
+medium -   store signed -8m unsigned 0-16m occenpc 3bt of mrmory / colum_name MEDIUMINT
+int -  store signed -2b unsigned 0-4b occenpc 4bt of mrmory / column_name INT
+big int -  store signed HUGR unsigned HUGE occenpc 8bt of mrmory / column_name BIGINT
+
+FLOATING numbers
+decimal - varable  except /ex decimal(p,s) p-precission ,s-scale decimal(3,1)total 3 and after.1 like / ex 23.1
+float  - 4b of memory aprox
+double - 8b memory high approx.
+
+DATE/TIME datatype
+date-3b of memory yyyy-mm-dd to store date only 
+time-3b of memory hh;mm;ss time
+datetime -8b of memory d+t datetime
+timestamp -4b of memory d+t  timestamp
+year - 1b of memory yyyy year
+
+
+BOOLEAN
+ will tinyint store 1b and store format 0/1
+
+
+open shell
+\sql
+\c root@localhost
+show databases;
+use 10000coders;
+show tables;
+
+
+commands
+
+DDL data definition language  create,alter,drop,truncat
+DML - data maluplaction  insert,update,delete
+DQL -data quering   select
+DCL - data control  grant,revoke
+TCL - tranction control  rollbact,commit,savepoint
+
+
+creating table
+
+create table TABLE_NAME1(cn1 type,cn2 type);
+
+create table students(ID MEDIUMINT,NAME Varchar(50),EMAIL Varchar(50));
+
+INSERT into students(ID,NAME,EMAIL) values
+(1,'K.shiva','shivakumarkotra1@gmail,com'),
+(2,'S.Kiran','kiran@gmail.com');
+
+or 
+
+INSERT into students values
+(1,'K.shiva','shivakumarkotra1@gmail,com'),
+(2,'S.Kiran','kiran@gmail.com');
+
+
+select *  from students; retrive all
+
+select NAME,EMAIL from students;  retrive ony name and email
+
+
+insert into students values(3,'H.ravi','ravi@gmail.com'),(4,'K.karthik','karthik@gmail.com'); insert a new rows
+
+
+sql is case insensitive
+
+
+task 
+create course dat like id name price
+
+
+day 3
+
+accuracy /level for float ---- mediam
+accuracy level for double------medium
+decimal -------except value
+
+ddl---to define and modifi database structure 
+it works on database column constraints indexexs of table
+
+ALTER 
+
+to modify the extesting structure
+add column
+modify column
+drop column-----delete table 
+rename coumn
+rename table
+remove  constraints
+
+
+add column -- ALter table students Add column type;
+
+modify column--ALter table students modify marks float;-- DECIMAL(8.3)
+
+drop column--ALter table students DROP marks;
+ 
+rename coumn--ALter table students RENAME column oldname to newname;
+
+rename table-- 
+
+
+DROP
+------
+drop table----DROP table students; --- it will drop total table permently
+
+drop database--DROP database 10000coders; it remove  database
+
+drop index---DROP index 
+
+
+TRUNCAT
+--------
+is use to clear data only not structure
+
+TRUNCATE table students;
+
+DML
+----
+use to manuplate data inside the table
+
+insert--INSERT INTO students Values(1,'vamshi','vamshi@gmail.com'),()
+
+update
+-------
+use subkey words SET to change the data,where(clause) keyword to chouse particular data
+
+UPDATE students SET marks=95 where id=5;
+
+EX scenarious
+--------------
+to change marks
+to chage address in shoping website
+to change salary
+
+delete
+-------
+if we want to remove any particular row use delete
+
+any particular value-DELETE  From students where marks=96;
+
+to delete allrows---DELETE  From students 
+
+we can roll back easy le
+truncat is fater and roll back hard
+
+
+--Snake case
+postID--camelcase
+
+REQUIRMENTS
+------------
+1)creat  tabe name pot 
+postid-smallint
+,posttype--varchar(50)
+,duration--smallint
+,captin--varchar(250)
+,likes---int
+,views--int
+,posttime--date
+,created timestamp --tim
+and status -- bool
+
+
+Create table post(post_id smallint,post_type varchar(50),duration smallint,captin varchar(250),likes int,views int,post_date date,post_time time);
+
+alter table post add column status boolean;
+
+alter table post add column commints_count tinyint;
+
+alter table post RENAME COLUMN status to Status;
+
+alter table post MODIFY COLUMN post_date TIMESTAMP;
+
+ALTER table post drop post_time;
+
+
+SENIRIO
+-------
+create db and table with structure order id, order_status,order_amount,deliver add,orderplacedtime,payment method,subscribed or not char(),time_of_order time)
+1)add estameted delivey manual date(give it in upper case)
+2)rename to lower case
+3)modify subscribed to bool
+4)drop time_of_order
+
+create table ecom(order_id smallint,order_amount int,order_status varchar(50),order_placed_time timestamp,delivery_date date,subscription varchar(30),time_of_order time);
+
+ALTER table ecom ADD COLUMN ESTIMATED_DELIVERY date;
+
+ALTER table ecom RENAME COLUMN ESTIMATED_DELIVERY to est_delivery;
+
+ALTER table ecom MODIFY COLUMN subscription Boolean;
+
+ALTER table ecom drop COLUMN time_of_order;
+
+
+DAY-4
+
+DML & DQL topic
+
+DATA MANUPLACATION LANGUAGE(DML)
+
+INSERT---
+UPDATE
+DELETE
+SELECT
+
+CRUD----create,read,update,delete
+
+create table marks(roll_numbers int,std_name varchar(50),marks decimal);----to create
+
+select * from marks; --- to select all
+
+select std_name from marks; ----- to see particular
+
+
+insert into marks values(51,'shiva',75),(52,'ravi',50);
+insert into marks values(53.5,'vamshi',75);-----taking id as 54
+
+insert into marks(roll_numbers,marks) values(56,'sairam',95);
+ERROR: 1136: Column count doesn't match value count at row 1
+
+Update marks set marks=85 where std_name='ram';
+Update marks set marks=72,std_name='sir ram' where roll_numbers=56;---to update both marks & name with roll no
+update marks set marks=marks+3;-----to update all marks
+update marks set marks=marks+10 where marks < 70;------less than 70 marks it will be increased
+
+
+delete from marks where roll_numbers=51;----if duplicates are there both will be deleted
+delete from marks;----it will delete the info from table
+
+
+
+DQL[data quering language]
+
+select
+
+select * from table;
+select col-1,col-2 from table;
+select * from table where condeation;
+
+
+
+condeations & selecting operators
+=,<,>,<=,>=     (!,<>)--not equal
+like--patterns
+in----list of values example:in(70,75,80)
+between---val-1 between val-2
+
+logical operator
+
+AND-select * from table where cond-1 and cond-2;
+OR-select * from table where cond-1 or cond-2;
+NOT-
+
+
+order by
+select * from table where order by column DASC or ASC;
+example----select * from marks order by marks DESC;
+
+limit---requied retrive columns/rows from table
+top 2------ select * from marks order by marks DESC limit 2;
+
+
+select * from marks where marks is null;----display nulls
+
+select * from marks where marks is not null;----display all with out null values
+
+
+between---select * from marks where marks between 75 and 89;
+
+update marks set Seaction='B' where marks > 75;--based on condeation to update section
+update marks set Seaction='A' where marks > 75;---same
+
+select * from marks where Seaction in ('A','B');---both (a and b)
+select * from marks where Seaction in ('A'); --- only A section
+
+
+select * from marks where Seaction = 'A' or Seaction='B';----or operation
+
+like-----dont know exect value
+search===(% and _)
+In name if we wabt a --------%a%  select * from marks where std_name Like '%m%' limit 3;
+starting--------M ===m%---------ex select * from marks where std_name Like 'm%';
+ending----------M====%m-----ex select * from marks where std_name Like '%m';
+starting and ending-------m%m------ex select * from marks where std_name Like 'm%l' limit 2;
+
+
+create default
+
+create table Defa(id int,name varchar(68),role varchar(90) default 'associate software enginer');
+insert into Defa(id,name) values(1,'A'),(2,'B'),(3,'C');
+
+
+
+REGEX-----regural expression
+
+
+
+libreary management system(books tables)-
+
+DAY 6
+
+
+
+
+
+
+
+
+
+
+
