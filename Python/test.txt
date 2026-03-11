@@ -366,13 +366,84 @@ libreary management system(books tables)-
 
 DAY 6
 
+aggregation functios
+sum()
+count()
+max()
+min()
+AVG()
 
 
 
+create table ecomers(order_id INT,customer_name varchar(50),amount Decimal(8,2),product_name varchar(50));
+
+insert into ecomers values (1,'Ravi',70000,'Laptop'),(2,'shiva',25000,'Mobile'),(3,'ram',2500,'smart_watch'),(4,'sunder',35000,'Tablete_mobile'),(5,'suresh',23000,'Televesion'),(6,'shiva',35000,'Televesion'),(7,'ravi',4000,'grander');
+
+insert into ecomers values(8,'ravi',18000,'Aircolour'),(9,'shiva',50000,'AC');
+
+select * from ecomers;
+
+select SUM(amount) as total_revenue from ecomers;
+
+select MIN(amount) as total_Minimum_amount from ecomers;
+
+select MAX(amount) as total_Maximum_amount from ecomers;
+
+select count(product_name) as total_products from ecomers;
+
+select AVG(amount) as average_amount from ecomers;
 
 
 
+limit n ---display up to n limit
+limit 4 ----display only furst 4 from table
+
+offset_1--trim like except first one it will print limt number
+ex:-select * from ecomers limit 5 offset 3;
 
 
+select * from ecomers order by amount DESC limit 1 offset 1;----to get 2nd highest amount
+select * from ecomers order by amount DESC limit 1,1;
+
+select * from ecomers order by amount DESC limit 1 offset 2;----to get 3nd highest amount
+select * from ecomers order by amount DESC limit 2,1;
+2 is offset 1 is limit
+
+select * from ecomers order by amount ASC limit 1 offset 1;----to get 2nd lowest amount
+select * from ecomers order by amount ASC limit 1,1;
+
+
+--to gect second highest with out limit & offset
+(select max(amount) as first_high from ecomers where amount < (select max(amount) as second_high from ecomers where amount));
+
+
+--to gect second lowest with out limit & offset
+(select MIN(amount) as second_lowest from ecomers where amount > (select MIN(amount) as first_lowest from ecomers where amount));
+
+
+--toget third lowest or highest
+
+(select MIN(amount) as third_lowest from ecomers where amount > (select MIN(amount) as second_lowest from ecomers where amount > (select MIN(amount) as first_lowest from ecomers )));
+
+(select max(amount) as third_high from ecomers where amount < (select max(amount) as second_high from ecomers where amount < (select MAX(amount) as first_highst from ecomers )));
+
+
+--sum of customer_name and how much they spend
+
+SELECT customer_name,sum(amount) from ecomers group by customer_name;
+
+
+----use group by we have to use having in the place of where
+
+SELECT customer_name,sum(amount) from ecomers group by customer_name having sum(amount) > 65000;
+
+---to know a particular person placed how may orders
+select customer_name,count(product_name) from ecomers group by customer_name;
+
+--to know each product how many orders
+select product_name,sum(product_name) from ecomers group by product_name;
+
+--to know what is max sales of a particular product
+select product_name,count(product_name) from ecomers group by product_name order by count(product_name) DESC limit 1 ;
 
 
