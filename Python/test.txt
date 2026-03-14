@@ -447,3 +447,10 @@ select product_name,sum(product_name) from ecomers group by product_name;
 select product_name,count(product_name) from ecomers group by product_name order by count(product_name) DESC limit 1 ;
 
 
+
+
+
+
+
+
+
