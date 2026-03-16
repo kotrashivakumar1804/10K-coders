@@ -450,6 +450,85 @@ select product_name,count(product_name) from ecomers group by product_name order
 
 
 
+Day 7
+
+Constrains = condeations
+
+constrains are rules we should follow while inserting into tables
+rules are applied for column in table for data accuracy and integer
+
+1)not null---wont accept null values in table
+2)uniqe----wont accept duplicate values
+3)Default---it will take default values for all any default value
+4)primary key---combo og not null & unique
+5)foren key
+6)check---check the condition based entry
+7)auto increment(not constrain but similar to constrain)
+
+
+create table contact(id int,name varchar(50),email varchar(100),ph varchar(50));
+
+insert INTO contact Values(1,'shiva','shivakumar@gmail.com','+91 8309282800'),(1,'ram','shivaram@gmail.com','+91 876542800'),(2,'vamshi','vamshi@gmail.com',' ');
+
+Select * from contact;
+
+Already we have null values and duplicates
+
+set sql_safe_updates =0;----to remove safe updates
+
+change the values in table 
+
+update contact set id=2 where name='ram';
+update contact set id=3 where name='vamshi';
+update contact set email='Ramvarma@gmail.com' where id =2;
+update contact set ph='+91 7654898674' where id =2;
+update contact set ph='+91 4537665234' where id =3;
+
+Alter table contact MODIFY column id int unique,MODIFY column name varchar(50) unique not null,MODIFY column email varchar(100) unique not null,MODIFY column ph varchar(50) unique not null;
+
+Alter table contact MODIFY column name varchar(50) not null;
+Alter table contact MODIFY column id int Primary key;
+
+alter table contact add status varchar(50) default = 'Inactive' not null;
+
+DESC contact;
+
+insert into contact values(4,'ravi','ravi@gmail.com','+91 6655433442',default);
+
+Remove not null
+----------------
+alter table contact modify column status varchar(50) default = 'Inactive';
+
+insert into contact values(4,'ravi','ravi@gmail.com','+91 6655433442');-------not accept
+
+insert into contact values(4,'ravi','ravi@gmail.com','+91 6655433442','Active');----it will print active
+
+insert into contact values(4,'ravi','ravi@gmail.com','+91 6655433442',NULL);----show null in column
+
+if we want to replace the status valus like null or empty string
+---------------------------------------------------------------------
+update contact set status=default  where status=null;---it replace with default
+update contact set status=default  where status='';---it replace with default
+
+add column age and check age > 18
+-------------------------------------
+alter table contact add age int not null check(age>18) Default 20;
+
+insert into contact values(5,'blue','blue@gmail.com','+91 6656433442',Default,16);-------not accept because age > 18
+
+auto increment
+---------------
+
+alter table contact modify column id int unique auto_increment;
+
+insert into contact values(id,'vanu','vanu@gmail.com','+91 6656783442',Default,23);
+
+DESC 10000coders.product_inventory; ----if we want use table from other dayabase
+
+
+insert into product_inventory values(1,'soaps',default,230,'sopesupplier@gmail.com'),(2,'Paste',default,120,'pastesupplier@gmail.com'),(3,'Perfume',default,250,'perfumesupplier@gmail.com'),(4,'Sunfloweroil',default,270,'oilsupplier@gmail.com'),(5,'Rice_bag',default,1000,'ricesupplier@gmail.com');
+
+
 
 
 
