@@ -530,6 +530,32 @@ insert into product_inventory values(1,'soaps',default,230,'sopesupplier@gmail.c
 
 
 
+DAY--8  17-03-2026
 
+Group By
+----------
+group by is used to group row that have the same values in column so we can perfume aggrecation functions like min,max,avg,count,sum etc on each group
+
+with out aggreacatoin fun no use of grouping the rows
+
+1)To now how many movies in a area
+2)to know all collection of area
+3)To know highest gross center
+4)To know lowest gross center
+5)AVG
+
+use 10000coders;
+
+create table employes(id int primary key,E_name varchar(50) not null,E_dept varchar(40) not null default 'IT',E_salary decimal(8,2)not null);
+
+insert into employes values(1,'shiva','DEVELOPER',55000),(2,'karan',default,43000),(3,'karthik','HR',34000),(4,'varun',default,60000),(5,'krish','DEVELOPER',70000),(6,'karshima',default,34000);
+insert into employes values(7,'rumnitha','ACCOUNTS',55000),(8,'radha','HR',45000),(9,'kiran','DEVELOPER',23000);
+select * from employes;
+
+select count(*) from employes where E_dept='IT';
+
+select * from employes where E_dept='IT';
+
+select E_dept,count(*) from employes group by E_dept;
 
 
