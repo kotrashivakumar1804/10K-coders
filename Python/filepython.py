@@ -289,50 +289,89 @@
 
 
 
-n=input('Enter item name :').split(',')
-m = list(map(int, input('Enter item price:').split(',')))
-def add_items(n,m):
-    items={}
-    for i in n:
-        items[i]=m[n.index(i)]
-    print(items)
-    return items
+# n=input('Enter item name :').split(',')
+# m = list(map(int, input('Enter item price:').split(',')))
+# def add_items(n,m):
+#     items={}
+#     for i in n:
+#         items[i]=m[n.index(i)]
+#     print(items)
+#     return items
     
-def calculated_bill(cart):
-    Total_bill=0
-    Expensive_item=''
-    cheaper_item=''     
-    for item, price in cart.items():
-        Total_bill+=int(price)
-        if price == max(cart.values()):
-            Expensive_item=f'{item} : {price}'
-        elif price == min(cart.values()):
-            cheaper_item=f'{item} : {price}'
-    print(f'Most expensive item: {Expensive_item}')
-    print(f'Cheapest item: {cheaper_item}')
-    print(f'Total bill before discount: {Total_bill}')
-    return Total_bill
+# def calculated_bill(cart):
+#     Total_bill=0
+#     Expensive_item=''
+#     cheaper_item=''     
+#     for item, price in cart.items():
+#         Total_bill+=int(price)
+#         if price == max(cart.values()):
+#             Expensive_item=f'{item} : {price}'
+#         elif price == min(cart.values()):
+#             cheaper_item=f'{item} : {price}'
+#     print(f'Most expensive item: {Expensive_item}')
+#     print(f'Cheapest item: {cheaper_item}')
+#     print(f'Total bill before discount: {Total_bill}')
+#     return Total_bill
 
-def Discount(Total_Bill):
-    if Total_Bill <= 10000:
-        d1=Total_Bill*0.05
-        print(f'you will get 5% Discount : {Total_Bill * 0.05}')
-        return Total_Bill-(Total_Bill * 0.05)
-    elif Total_Bill <= 20000:
-        d2=Total_Bill*0.1
-        print(f'you will get 10% Discount : {Total_Bill * 0.1}')
-        return Total_Bill-(Total_Bill * 0.1)
-    elif Total_Bill <= 29999:
-        d3=Total_Bill*0.2
-        print(f'you will get 20% Discount : {Total_Bill * 0.2}')
-        return Total_Bill-(Total_Bill * 0.2)
-    else:
-        print(f'you will get 30% Discount : {Total_Bill * 0.3}')
-        return Total_Bill-(Total_Bill * 0.3)
+# def Discount(Total_Bill):
+#     if Total_Bill <= 10000:
+#         d1=Total_Bill*0.05
+#         print(f'you will get 5% Discount : {Total_Bill * 0.05}')
+#         return Total_Bill-(Total_Bill * 0.05)
+#     elif Total_Bill <= 20000:
+#         d2=Total_Bill*0.1
+#         print(f'you will get 10% Discount : {Total_Bill * 0.1}')
+#         return Total_Bill-(Total_Bill * 0.1)
+#     elif Total_Bill <= 29999:
+#         d3=Total_Bill*0.2
+#         print(f'you will get 20% Discount : {Total_Bill * 0.2}')
+#         return Total_Bill-(Total_Bill * 0.2)
+#     else:
+#         print(f'you will get 30% Discount : {Total_Bill * 0.3}')
+#         return Total_Bill-(Total_Bill * 0.3)
     
-Cart_Items=add_items(n,m)
-Total_Bill=calculated_bill(Cart_Items)
-Final_Bill=Discount(Total_Bill)
-print('--------------------------------------')
-print('Final Bill After Discount:',Final_Bill)
-print('--------------------------------------')
+# Cart_Items=add_items(n,m)
+# Total_Bill=calculated_bill(Cart_Items)
+# Final_Bill=Discount(Total_Bill)
+# print('--------------------------------------')
+# print('Final Bill After Discount:',Final_Bill)
+# print('--------------------------------------')
+
+user_name=input('enter the string :')
+password=input('enter the password :')
+def validate_password(password):
+    upper=False
+    lower=False
+    digit=False
+    special=False
+    for i in password:
+        if i.isupper():
+            upper=True
+        elif i.islower():
+            lower=True
+        elif i.isdigit():
+            digit=True
+        elif i in '!@#$%^&*':
+            special=True
+    missing=''
+    if len(password) >= 8:
+        print(f'username: {user_name}')
+        if not upper:
+            missing += 'uppercase letter '
+        if not lower:
+            missing += 'lowercase letter '
+        if not digit:
+            missing += 'numbers '
+        if not special:
+            missing += 'special character '
+        
+    # correct =print(f'strong password: {password}') and print('Login successful') if len(missing) == 0 
+    # else print(f'weak password: {password}') and print(f'missing:{missing}')
+
+    if len(missing) == 0:
+        print(f'strong password: {password}')
+        print('Login successful')
+    else:
+        print(f'weak password: {password}')
+        print(f'{missing} is missing')
+validate_password(password)
