@@ -337,13 +337,67 @@
 # print('Final Bill After Discount:',Final_Bill)
 # print('--------------------------------------')
 
+# user_name=input('enter the string :')
+# password=input('enter the password :')
+# def validate_password(password):
+#     upper=False
+#     lower=False
+#     digit=False
+#     special=False
+#     for i in password:
+#         if i.isupper():
+#             upper=True
+#         elif i.islower():
+#             lower=True
+#         elif i.isdigit():
+#             digit=True
+#         elif i in '!@#$%^&*':
+#             special=True
+#     missing=''
+#     if len(password) >= 8:
+#         print(f'username: {user_name}')
+#         if not upper:
+#             missing += 'uppercase letter '
+#         if not lower:
+#             missing += 'lowercase letter '
+#         if not digit:
+#             missing += 'numbers '
+#         if not special:
+#             missing += 'special character '
+        
+#     # correct =print(f'strong password: {password}') and print('Login successful') if len(missing) == 0 
+#     # else print(f'weak password: {password}') and print(f'missing:{missing}')
+
+#     if len(missing) == 0:
+#         print(f'strong password: {password}')
+#         print('Login successful')
+#     else:
+#         print(f'weak password: {password}')
+#         print(f'{missing} is missing')
+
+# validate_password(password)
+
+
 user_name=input('enter the string :')
 password=input('enter the password :')
+def validate_username(user_name):
+    space=False
+    if len(user_name) >= 5:
+        pass
+    for i in user_name:
+        if i==' ' :
+            space=True
+       
+    if space :
+        print(f'invalid username: {user_name} should not contain spaces')
+    else:
+        print(f'valid username: {user_name}')
 def validate_password(password):
     upper=False
     lower=False
     digit=False
     special=False
+    missing=''
     for i in password:
         if i.isupper():
             upper=True
@@ -353,9 +407,7 @@ def validate_password(password):
             digit=True
         elif i in '!@#$%^&*':
             special=True
-    missing=''
     if len(password) >= 8:
-        print(f'username: {user_name}')
         if not upper:
             missing += 'uppercase letter '
         if not lower:
@@ -364,14 +416,12 @@ def validate_password(password):
             missing += 'numbers '
         if not special:
             missing += 'special character '
-        
-    # correct =print(f'strong password: {password}') and print('Login successful') if len(missing) == 0 
-    # else print(f'weak password: {password}') and print(f'missing:{missing}')
-
-    if len(missing) == 0:
+    
+    if missing == '':
         print(f'strong password: {password}')
-        print('Login successful')
     else:
         print(f'weak password: {password}')
         print(f'{missing} is missing')
+ 
+validate_username(user_name)
 validate_password(password)
