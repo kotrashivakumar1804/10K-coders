@@ -378,50 +378,102 @@
 # validate_password(password)
 
 
-user_name=input('enter the string :')
-password=input('enter the password :')
-def validate_username(user_name):
-    space=False
-    if len(user_name) >= 5:
-        pass
-    for i in user_name:
-        if i==' ' :
-            space=True
+# user_name=input('enter the string :')
+# password=input('enter the password :')
+# def validate_username(user_name):
+#     space=False
+#     if len(user_name) >= 5:
+#         pass
+#     for i in user_name:
+#         if i==' ' :
+#             space=True
        
-    if space :
-        print(f'invalid username: {user_name} should not contain spaces')
+#     if space :
+#         print(f'invalid username: {user_name} should not contain spaces')
+#     else:
+#         print(f'valid username: {user_name}')
+# def validate_password(password):
+#     upper=False
+#     lower=False
+#     digit=False
+#     special=False
+#     missing=''
+#     for i in password:
+#         if i.isupper():
+#             upper=True
+#         elif i.islower():
+#             lower=True
+#         elif i.isdigit():
+#             digit=True
+#         elif i in '!@#$%^&*':
+#             special=True
+#     if len(password) >= 8:
+#         if not upper:
+#             missing += 'uppercase letter '
+#         if not lower:
+#             missing += 'lowercase letter '
+#         if not digit:
+#             missing += 'numbers '
+#         if not special:
+#             missing += 'special character '
+    
+#     if missing == '':
+#         print(f'strong password: {password}')
+#     else:
+#         print(f'weak password: {password}')
+#         print(f'{missing} is missing')
+# validate_username(user_name)
+# validate_password(password)
+
+
+Email=input('enter the email :')
+password=input('enter the password :')
+def valid_email(Email):
+    space,special,com=False,False,False
+    check=''
+    if '@' not in Email:
+        check+='@ is missing '
+    if '.' not in Email:
+        check+='. is missing '
+    if ' ' in Email:
+        check+='space is not allowed '
+    if len(check) == 0:
+        print(f'valid Email: {Email}')
+        return True
     else:
-        print(f'valid username: {user_name}')
+        print(f'invalid Email: {check}')  
+        return False
 def validate_password(password):
-    upper=False
-    lower=False
-    digit=False
-    special=False
+    upper,lower,digit,special=False,False,False,False
     missing=''
     for i in password:
         if i.isupper():
             upper=True
-        elif i.islower():
+        if i.islower():
             lower=True
-        elif i.isdigit():
+        if i.isdigit():
             digit=True
-        elif i in '!@#$%^&*':
+        if i in '!@#$%*':
             special=True
-    if len(password) >= 8:
+    if len(password) <= 12:
         if not upper:
-            missing += 'uppercase letter '
+            missing += 'uppercase letter'
         if not lower:
-            missing += 'lowercase letter '
+            missing += 'lowercase letter'
         if not digit:
-            missing += 'numbers '
+            missing += 'numbers'
         if not special:
-            missing += 'special character '
-    
-    if missing == '':
+            missing += 'special character'
+    if len(missing) == 0:
         print(f'strong password: {password}')
+        return True
     else:
         print(f'weak password: {password}')
         print(f'{missing} is missing')
- 
-validate_username(user_name)
-validate_password(password)
+        return False
+final_Email=valid_email(Email)
+final_Password=validate_password(password)
+if final_Email and final_Password:
+    print('Final Status: Login Successful 🎉')
+else:
+    print('Final Status: Login Failed ❌')
