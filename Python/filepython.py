@@ -1,257 +1,163 @@
-# # name=input("enter your name : ")
-# # city=input("enter your city : ")
-# # institute=input("enter your institute name : ")
-# # course=input("enter your course : ")
+#---------------------------------------------sets-----------------------------------------------#
+# #set
+# s={1, 2, 3, 4, 5}
+# print(s)
+# print(type(s))
+# print(len(s))
+# #hashable elements
+# print(hash(3))
+# #update set
+# s.add(6)
+# print(s)
+# s.update([7, 8, 9])
+# print(s)
+# #delete specific element
+# s.remove(3)
+# print(s)
+# #delete entire set
+# del s
 
-# # var=f" I am {name}, came to {city} and joined in {institute} for {course} course."
+#--------------------------------------------dictneary------------------------------------------------#
 
-# # # print(var)
+#Dictneary
+# Dict1={1:"sachin",2:30,3:"pune"}
+# print(Dict1)
+# print(len(Dict1))
 
+# Dict1[4]="cricket"
+# print(Dict1)
 
-# # #set
-# # s={1, 2, 3, 4, 5}
-# # print(s)
-# # print(type(s))
-# # print(len(s))
-# # #hashable elements
-# # print(hash(3))
-# # #update set
-# # s.add(6)
-# # print(s)
-# # s.update([7, 8, 9])
-# # print(s)
-# # #delete specific element
-# # s.remove(3)
-# # print(s)
-# # #delete entire set
-# # del s
+# del Dict1[4]
+# print(Dict1)
 
+# del Dict1
+# print(Dict1)
 
-# #Dictneary
-# # Dict1={1:"sachin",2:30,3:"pune"}
-# # print(Dict1)
-# # print(len(Dict1))
+#-------------------------------------------------Account Privacy and Messaging-------------------------------------------------------#
 
-# # Dict1[4]="cricket"
-# # print(Dict1)
+# shiva=['likith','vanu','kiran','ram','anil','prabu','pranith']
+# ram=['likith','shiva','priya','anil','sai','kiran']
+# if set(shiva) & set(ram):  # Check if there are common friends
+#     print("You can send messages to each other.")
+# else:
+#     account_type=input("Is your friend's account public or private: ")
+#     if account_type == 'public' :
+#         print('You can send message to each other')
+#     else :
+#         print('You cannot send message to each other')
 
-# # del Dict1[4]
-# # print(Dict1)
+#------------------------------------------------------------FizzBuzz-----------------------------------------------------------------#
 
-# # del Dict1
-
-
-# # print(Dict1)
-
-
-# # shiva=['likith','vanu','kiran','ram','anil','prabu','pranith']
-# # ram=['likith','shiva','priya','anil','sai','kiran']
-# # if set(shiva) & set(ram):  # Check if there are common friends
-# #     print("You can send messages to each other.")
-# # else:
-# #     account_type=input("Is your friend's account public or private: ")
-# #     if account_type == 'public' :
-# #         print('You can send message to each other')
-# #     else :
-# #         print('You cannot send message to each other')
-
-
-# # for i in range(1,21):
-# #     if i % 3 == 0 and i % 5 == 0:
-# #         print(f'{i}-fizzbuzz')
-# #     elif i%3==0:
-# #         print(f'{i}-fizz')
-# #     elif i % 5 == 0:
-# #         print(f'{i}-buzz')
+# for i in range(1,21):
+#     if i % 3 == 0 and i % 5 == 0:
+#         print(f'{i}-fizzbuzz')
+#     elif i%3==0:
+#         print(f'{i}-fizz')
+#     elif i % 5 == 0:
+#         print(f'{i}-buzz')
 
 
+#------------------------------------------------Armstrong number checking-------------------------------------------------------#
+
+# v=int(input("Enter a number: "))
+# count=len(str(v))
+# d=v
+# r=0
+# while v > 0:
+#     result=v % 10
+#     r += result ** count 
+#     v //=10
+# if d==r:
+#     print("It is a armstrong number")
+# else:
+#     print("It is not a armstrong number")
 
 
-# # v=int(input("Enter a number: "))
-# # count=len(str(v))
-# # d=v
-# # r=0
-# # while v > 0:
-# #     result=v % 10
-# #     r += result ** count 
-# #     v //=10
-# # if d==r:
-# #     print("It is a armstrong number")
-# # else:
-# #     print("It is not a armstrong number")
+#--------------------------------------------------------Movie ticket booking system-------------------------------------------------------#
+
+# def Movie_tickets(price,tickets):
+#     total_amount=(price*tickets)
+#     print(f'Total amount to be paid: {total_amount}')
+#     if total_amount <= 1500:
+#         print('Thank you for purchasing the tickets.')
+#     elif total_amount > 1500 and total_amount <= 2000:
+#         print('Complementary Gift Coke for you.')
+#     elif total_amount > 2000:
+#         print('Complementary Gift Popcorn And Coke for you.')
+#     else:
+#         print('Thank you visit again.')
+
+# Movie_tickets(
+#     int(input("Enter the price of ticket : ")),
+#     int(input("Enter the number of tickets: "))
+# )
+
+#--------------------------------------------------------leap year checking-------------------------------------------------------#
+
+# leap_year=int(input("Enter a year: "))
+
+# if leap_year % 4 == 0 and (leap_year % 400 == 0 or leap_year % 100 != 0):
+#     print(f'This is a leap year {leap_year}')
+# else:
+#     print(f'This is not a leap year {leap_year}')
+
+#--------------------------------------------------------Elericity bill calculation-----------------------------------------------#
+
+# check the elericity bill as per the units and prices
+# units=float(input('Enter the number of units consumed: '))
+# bill_amount=0
+# if units <=100:
+#     bill_amount=units*2
+#     print(f'The bill amount of {units} consumed units is: {bill_amount} Rs')
+# elif units <= 200:
+#     on=units-100
+#     bill_amount=100*2+on*3
+#     print(f'The bill amount of {units} consumed units is: {bill_amount} Rs')
+# elif units > 200:
+#      one=units-200
+#      co1=100*2+100*3
+#      co3=one*5
+#      bill_amount=co1+co3
+#      print(f'The bill amount of {units} consumed units is: {bill_amount} Rs')
+# else:
+#     print(f'thank you for using our service')
 
 
+#---------------------------------------------------------perfect number and perfect square-----------------------------------------------#
 
-# # def Movie_tickets(price,tickets):
-# #     total_amount=(price*tickets)
-# #     print(f'Total amount to be paid: {total_amount}')
-# #     if total_amount <= 1500:
-# #         print('Thank you for purchasing the tickets.')
-# #     elif total_amount > 1500 and total_amount <= 2000:
-# #         print('Complementary Gift Coke for you.')
-# #     elif total_amount > 2000:
-# #         print('Complementary Gift Popcorn And Coke for you.')
-# #     else:
-# #         print('Thank you visit again.')
+# def perfect_number(n):
+#         i=1
+#         sum=0
+#         while i < n:
+#             if n % i == 0:
+#                 sum+=i
+#             i+=1
+#         if sum == n:
+#             print('It is a perfect number')
+#         else:
+#             print('It is not a perfect number')
 
-# # Movie_tickets(
-# #     int(input("Enter the price of ticket : ")),
-# #     int(input("Enter the number of tickets: "))
-# # )
+# def perfect_square(n):
+#     c=1
+#     is_perfect_square=False
+#     while c < n:
+#         if c*c == n:
+#             is_perfect_square=True
+#         c+=1
+#     if is_perfect_square== True:
+#         print(f"{n} is perfect square")
+#     else:
+#         print(f"{n} is not perfect square")
 
+# x=input("Enter perfect number or perfect square: ")
+# if x == "perfect_number":
+#     perfect_number(int(input("Enter a number: ")))  
+# elif x == "perfect_square":
+#     perfect_square(int(input("Enter a number: ")))
+# else:
+#     print("Invalid input. Please enter 'perfect_number' or 'perfect_square'.")
 
-
-# # leap_year=int(input("Enter a year: "))
-
-# # if leap_year % 4 == 0 and (leap_year % 400 == 0 or leap_year % 100 != 0):
-# #     print(f'This is a leap year {leap_year}')
-# # else:
-# #     print(f'This is not a leap year {leap_year}')
-
-
-# # check the elericity bill as per the units and prices
-# # units=float(input('Enter the number of units consumed: '))
-# # bill_amount=0
-# # if units <=100:
-# #     bill_amount=units*2
-# #     print(f'The bill amount of {units} consumed units is: {bill_amount} Rs')
-# # elif units <= 200:
-# #     on=units-100
-# #     bill_amount=100*2+on*3
-# #     print(f'The bill amount of {units} consumed units is: {bill_amount} Rs')
-# # elif units > 200:
-# #      one=units-200
-# #      co1=100*2+100*3
-# #      co3=one*5
-# #      bill_amount=co1+co3
-# #      print(f'The bill amount of {units} consumed units is: {bill_amount} Rs')
-# # else:
-# #     print(f'thank you for using our service')
-
-
-
-# from os import CLD_STOPPED
-
-
-# ecommerce_data = [
-#     {
-#         "order_id": "O1001",
-#         "customer_name": "Ravi Kumar",
-#         "city": "Hyderabad",
-#         "product": "Wireless Mouse",
-#         "category": "Electronics",
-#         "price": 799,
-#         "quantity": 2,
-#         "total_amount": 1598,
-#         "payment_method": "UPI",
-#         "order_status": "Delivered"
-#     },
-#     {
-#         "order_id": "O1002",
-#         "customer_name": "Sneha Reddy",
-#         "city": "Bangalore",
-#         "product": "Bluetooth Headphones",
-#         "category": "Electronics",
-#         "price": 1999,
-#         "quantity": 1,
-#         "total_amount": 1999,
-#         "payment_method": "Credit Card",
-#         "order_status": "Shipped"
-#     },
-#     {
-#         "order_id": "O1003",
-#         "customer_name": "Arjun Singh",
-#         "city": "Mumbai",
-#         "product": "Running Shoes",
-#         "category": "Fashion",
-#         "price": 2499,
-#         "quantity": 1,
-#         "total_amount": 2499,
-#         "payment_method": "Cash on Delivery",
-#         "order_status": "Processing"
-#     },
-#     {
-#         "order_id": "O1004",
-#         "customer_name": "Priya Sharma",
-#         "city": "Delhi",
-#         "product": "Smart Watch",
-#         "category": "Electronics",
-#         "price": 3499,
-#         "quantity": 1,
-#         "total_amount": 3499,
-#         "payment_method": "Debit Card",
-#         "order_status": "Delivered"
-#     },
-#     {
-#         "order_id": "O1005",
-#         "customer_name": "Kiran Patel",
-#         "city": "Chennai",
-#         "product": "Laptop Backpack",
-#         "category": "Accessories",
-#         "price": 1299,
-#         "quantity": 3,
-#         "total_amount": 3897,
-#         "payment_method": "UPI",
-#         "order_status": "Shipped"
-#     }
-# ]
-
-
-
-# # for x in ecommerce_data:
-# # #     if x["customer_name"] == x['customer_name']:
-# # #         print(x['customer_name'])
-# #        if x['price'] > 1000:
-# #               print(x['customer_name'], x['price'])
-
-
-# #print custoer names who is using upi method
-# #print customer names who is purchasing other than electronics category
-# #print customer names who is purchasing more than 1 quantity
-
-# # for x in ecommerce_data:
-# #     if x["payment_method"]=='UPI':
-# #         print(x['customer_name'],x["payment_method"])
-
-# #     if x['category'] != "Electronics":
-# #          print(x['customer_name'],x["category"])
-
-# #     if x["quantity"]>1:
-# #         print(x['customer_name'],x["quantity"])
-
-    
-
-# # def perfect_number(n):
-# #         i=1
-# #         sum=0
-# #         while i < n:
-# #             if n % i == 0:
-# #                 sum+=i
-# #             i+=1
-# #         if sum == n:
-# #             print('It is a perfect number')
-# #         else:
-# #             print('It is not a perfect number')
-
-# # def perfect_square(n):
-# #     c=1
-# #     is_perfect_square=False
-# #     while c < n:
-# #         if c*c == n:
-# #             is_perfect_square=True
-# #         c+=1
-# #     if is_perfect_square== True:
-# #         print(f"{n} is perfect square")
-# #     else:
-# #         print(f"{n} is not perfect square")
-
-# # x=input("Enter perfect number or perfect square: ")
-# # if x == "perfect_number":
-# #     perfect_number(int(input("Enter a number: ")))  
-# # elif x == "perfect_square":
-# #     perfect_square(int(input("Enter a number: ")))
-# # else:
-# #     print("Invalid input. Please enter 'perfect_number' or 'perfect_square'.")
+#------------------------------------------------------------- Student Marks and Grade Calculation-----------------------------------------------#
 
 # def get_marks(subjects, marks):
 #     marks_dict={}
@@ -287,7 +193,7 @@
 # print('Average marks:',Average)
 # print('Grade:',Grade)
 
-
+#------------------------------------------------------- Shopping Cart System----------------------------------------------------------#
 
 # n=input('Enter item name :').split(',')
 # m = list(map(int, input('Enter item price:').split(',')))
@@ -337,6 +243,8 @@
 # print('Final Bill After Discount:',Final_Bill)
 # print('--------------------------------------')
 
+#----------------------------------------------- username and password validation only password strong & week checking-----------------------------------------------#
+
 # user_name=input('enter the string :')
 # password=input('enter the password :')
 # def validate_password(password):
@@ -377,6 +285,7 @@
 
 # validate_password(password)
 
+#----------------------------------------------- username and password validation with space and length check-----------------------------------------------#
 
 # user_name=input('enter the string :')
 # password=input('enter the password :')
@@ -425,55 +334,117 @@
 # validate_username(user_name)
 # validate_password(password)
 
+#---------------------------------------Email and Password Validation if @ and . in gmail will be allowed---------------------------------------#
 
-Email=input('enter the email :')
-password=input('enter the password :')
-def valid_email(Email):
-    space,special,com=False,False,False
-    check=''
-    if '@' not in Email:
-        check+='@ is missing '
-    if '.' not in Email:
-        check+='. is missing '
-    if ' ' in Email:
-        check+='space is not allowed '
-    if len(check) == 0:
-        print(f'valid Email: {Email}')
-        return True
+# Email=input('enter the email :')
+# password=input('enter the password :')
+# def valid_email(Email):
+#     space,special,com=False,False,False
+#     check=''
+#     if '@' not in Email:
+#         check+='@ is missing '
+#     if '.' not in Email:
+#         check+='. is missing '
+#     if ' ' in Email:
+#         check+='space is not allowed '
+#     if len(check) == 0:
+#         print(f'valid Email: {Email}')
+#         return True
+#     else:
+#         print(f'invalid Email: {check}')  
+#         return False
+# def validate_password(password):
+#     upper,lower,digit,special=False,False,False,False
+#     missing=''
+#     for i in password:
+#         if i.isupper():
+#             upper=True
+#         if i.islower():
+#             lower=True
+#         if i.isdigit():
+#             digit=True
+#         if i in '!@#$%*':
+#             special=True
+#     if len(password) <= 12:
+#         if not upper:
+#             missing += 'uppercase letter'
+#         if not lower:
+#             missing += 'lowercase letter'
+#         if not digit:
+#             missing += 'numbers'
+#         if not special:
+#             missing += 'special character'
+#     if len(missing) == 0:
+#         print(f'strong password: {password}')
+#         return True
+#     else:
+#         print(f'weak password: {password}')
+#         print(f'{missing} is missing')
+#         return False
+# final_Email=valid_email(Email)
+# final_Password=validate_password(password)
+# if final_Email and final_Password:
+#     print('Final Status: Login Successful 🎉')
+# else:
+#     print('Final Status: Login Failed ❌')
+
+
+# ---------------------------------------------------------Banking System-----------------------------------------------------------------#
+
+balance=1000
+def Deposit():
+    amount=int(input('Enter the amount to be deposit:'))
+    if amount > 0:
+        print(f'{amount}/- Amount deposited successfully')
+        return amount
     else:
-        print(f'invalid Email: {check}')  
-        return False
-def validate_password(password):
-    upper,lower,digit,special=False,False,False,False
-    missing=''
-    for i in password:
-        if i.isupper():
-            upper=True
-        if i.islower():
-            lower=True
-        if i.isdigit():
-            digit=True
-        if i in '!@#$%*':
-            special=True
-    if len(password) <= 12:
-        if not upper:
-            missing += 'uppercase letter'
-        if not lower:
-            missing += 'lowercase letter'
-        if not digit:
-            missing += 'numbers'
-        if not special:
-            missing += 'special character'
-    if len(missing) == 0:
-        print(f'strong password: {password}')
-        return True
+        print('Invalid amount')
+        return 0
+def Withdraw():
+    amount=int(input('Enter the amount to be withdraw:'))
+    if amount <= balance:
+        print(f'{amount}/- Amount withdraw successfully')
+        return amount
     else:
-        print(f'weak password: {password}')
-        print(f'{missing} is missing')
-        return False
-final_Email=valid_email(Email)
-final_Password=validate_password(password)
-if final_Email and final_Password:
-    print('Final Status: Login Successful 🎉')
+        print('Insufficient balance')
+        return 0
+def CheckBalance():
+    print(f'Your current balance is {balance}/-')
+
+print('<------$---Welcome to the Bank of India---$------>')
+ACC_Pin=2004
+Pin=int(input('Enter your pin: '))
+chances=3
+is_acc_pin_correct=False
+
+for i in range(1,chances+1):
+    if Pin == ACC_Pin:
+        is_acc_pin_correct=True
+        print('Welcome to our bank. Please select your transaction.')
+        break
+    else:
+        if chances-i !=0:
+            print(f'Incorrect pin. You have {chances-i} chances left.')
+            Pin=int(input('Enter your pin: '))
+        else:
+            break
+if is_acc_pin_correct:
+    while True:
+        print('Deposit press -------> 1')
+        print('Withdraw press ------> 2')
+        print('Check Balance press -> 3')
+        print('Exit press ----------> 4')
+        chose=int(input('Enter your choice: '))
+        if chose == 1:
+            balance += Deposit()
+        elif chose == 2:
+            balance -= Withdraw()
+        elif chose == 3:
+            CheckBalance()
+        elif chose == 4:
+            print('Thank you for using our services. Have a nice day!')
+            break
+        else:
+            print('Invalid choice. Please try again.......!')
 else:
-    print('Final Status: Login Failed ❌')
+    print('Your account is Temporarily blocked. Try after 24 hours or try again later.......!')

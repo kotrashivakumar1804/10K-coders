@@ -559,3 +559,59 @@ select * from employes where E_dept='IT';
 select E_dept,count(*) from employes group by E_dept;
 
 
+6-04-2026
+
+
+shello copy will cpy only outer elements 
+deep copy with nested 
+
+
+SQL
+
+joins this are used to combine the one or more tables based on conditions and type of join
+
+2 tables
+ with key and with out key
+
+inner----it combine two tables in single table based on equal values in table 
+left
+right
+full
+cross
+self
+
+example 
+
+table 1 & table 2
+
+table 1 type of join --- left table
+type of join table 2 --- right table
+
+inner----it combine two tables in single table based on equal values in table 
+
+select * from table1 inner join table 2 on table1.id = table2.roll_no
+
+left join -- display all values from left table and matched values from the right table
+
+select * from table1 left join table 2 on table1.id = table2.roll_no
+t1= id = 1,2,3,4
+t2= roll=1256
+
+1 1
+2 2
+3 null
+4 null
+
+right join -- display all values from right table and matched values from the left table
+
+select * from table1 right join table 2 on table1.id = table2.roll_no
+
+1 1      1 2 5 6
+2 2      1 2 null null
+3 5
+4 6
+
+
+
+
+
