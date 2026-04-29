@@ -613,5 +613,167 @@ select * from table1 right join table 2 on table1.id = table2.roll_no
 
 
 
+DCL -- DATA CONTROL LANGUAGE
 
+to give or remove permations to user from users
+
+grant-----to give permations to user
+
+grant all privilages on db.tb to user@localhost
+grant all privileges on  *.* to user@localhost
+grant insert,select,update on db.tb to user@localhost
+grant insert,select,update on *.* to user@localhost
+
+
+
+revoke---to remove permissions from users
+
+revoke all privilages on db.tb from user@localhost
+revoke all privileges on  *.* from user@localhost
+revoke insert,select,update on db.tb from user@localhost
+revoke insert,select,update on *.* from user@localhost
+
+
+//to check users in our server
+
+select * from MySQL.user
+
+
+//create new user
+
+create user username@localhost identified by 'password'
+
+create user ajay@localhost identified by "Ajay10";
+
+// to delete user
+
+drop user username
+
+
+
+all permations to all databases and tables 
+grant all privileges on *.* to ajay@localhost;
+
+revoke all privileges on *.* from ajay@localhost;
+
+one database all tables
+grant all privileges on 10000coders.* to ajay@localhost;
+revoke all privileges on 10000coders.* from ajay@localhost;
+
+one database one tables
+grant all privileges on 10000coders.emp to ajay@localhost;
+revoke insert,update on 10000coders.emp from ajay@localhost;
+revoke all privileges on 10000coders.emp from ajay@localhost;
+
+only particular permeation to particular db and table
+grant insert,select,update on 10000coders.emp to ajay@localhost;
+revoke insert,select,update on 10000coders.emp from ajay@localhost;
+
+perticula permisions to all db and tb
+grant insert,select,update on *.* to ajay@localhost;
+revoke insert,select,update on *.* from ajay@localhost;
+
+
+TCL----tranction control language
+
+commit-----store data permently in table
+manually  
+set autocommit=0 data tempreraly
+default
+set autocommit=1 data perment stores
+
+
+
+rollback----undo the data(previous data)
+save point----rollback to specific point
+
+start transactions;
+use tcl commands
+
+auto commit = 0; or start transaction;
+update studet set id =14 where name = 'shiva';
+roll back ;
+again it goes bace because it was stored in temp
+
+commit; data will store permanent ---setautocommit=1
+
+rollback; ---it will  not change because we already done commit;
+
+savepoint a;--after inserting one row in start transesaction
+update 
+savepoint b;
+insert
+savepoint c;
+
+rollback to a; ---goes undu this all till savepoint a
+
+rollback to c --- does not exist
+
+se autocommit = 0
+*commit;
+set autocommit = 1
+permenrrt store
+
+start tanseaction ;
+rollback;
+commit;
+store dicret perment no * will present
+
+
+9-4-2026
+
+set operators
+
+it combines the more than one result in a single table
+
+tb1 + tb2 = tb3
+
+union----------it combines more than one result with out duplicates
+union all------it combines more than one result set into single with duplicates
+intersect------same rows(values)from two different result sets
+except / minus-it display the unique values from the first table after comparing two tables results set
+
+---it displays the first table column as headings
+---in select queries
+
+union
+
+select * from colour union select * from fruits;
+select * from colour union select id,fr_names from fruits;
+
+select * from colour except select id,fr_names from fruits;
+
+
+
+
+index is used for accessing data from table easyle
+
+22-04-26
+
+CASE and CTE normalization
+
+CASE and CTE 
+              conditional statements
+case ----> used to condeation based and display (select & update)
+
+case
+select col,name,case
+where condition then 'data'
+else data
+end
+from tb-name
+
+CTE----> common table expression
+
+23-4-26
+
+unorganize way -- single row column have multiple data
+organize---in row and column org data
+
+1nf---single row single data
+2nf--duplicate remove by partitional dependency 2 reduce space 
+3nf--when sub column depends up on the main column in indirect way transitive dependency
+bcnf
+4nf
+5nf
 
