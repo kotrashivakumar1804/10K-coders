@@ -777,3 +777,37 @@ bcnf
 4nf
 5nf
 
+17-04-26
+
+delimiter //
+create procedure po(out vc int)
+begin
+update abc set marks=marks+20 where id = 2 ;
+end //
+
+call po(@vx)
+
+
+EXCEl
+---------
+2-6-2026
+-----------------------------------------------------------------
+data modeling
+-→ It is used to recognize the rows unique and to remove duplicates in large datasets
+--> it is used to duild the relation between the more than one table 
+
+relation between tables
+steps
+------
+-→ select dataset and go to insert povit table click on data model (or)
+-→ go to power povit select add to data model
+-→
+-→click on digram view tables will be shown 
+-→ then select any unique and drag to anoother table with is common 
+like
+ cust_id--------→cust_id
+pro_id---------→pro_id
+-→go to data in ribben we can see data model we can see relations click on it it will show the relations we created we acn edit or delrte it 
+---→ by this we want to create pivot table
+go to insert and select pivot table select data model 
+

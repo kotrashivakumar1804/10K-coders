@@ -388,6 +388,516 @@
 # else:
 #     print('Final Status: Login Failed ❌')
 
+# ----------------------------------------------------  product management system  ------------------------------------------------------
+# class Product:
+#     def __init__(self,id,name,price,rating):
+#         self.id=id
+#         self.name=name
+#         self.price=price
+#         self.rating=rating
+# class User:
+#     def __init__(self):
+#         self.products=[]
+#     def add_product(self):
+#         id=int(input('enter product id:'))
+#         for product in self.products:
+#             if product.id == id:
+#                 print('product id already exists')
+#                 print('-'*50)
+#                 return
+#         name=input('enter product name:')
+#         if len(name) <= 7:
+#             name += ' ' * (7-len(name))
+#         price=float(input('enter product price:'))
+#         rating=float(input('enter product rating:'))
+#         product=Product(id,name,price,rating)
+#         self.products.append(product)
+#         print('product added successfully to the cart.....!')
+#         print('-'*50)
 
+#     def remove_product(self):
+#         if(len(self.products) == 0):
+#             print('cart is empty.....!')
+#             return
+#         id=int(input('enter product id to remove:'))
+#         for product in self.products:
+#             if product.id == id:
+#                 self.products.remove(product)
+#                 print('product removed successfully from the cart.....!')
+#                 print('-'*50)
+#                 return
+#         print('product not found in the cart.....!')
+#         print('-'*50)
 
+#     def Update_product(self):
+#         if(len(self.products) == 0):
+#             print('cart is empty.....!')
+#             return
+#         id=int(input('Enter product id to update:'))
+#         for product in self.products:
+#             if product.id == id:
+#                 while True:
+#                     print('SELECT 1 -->update name')
+#                     print('SELECT 2 -->update price')
+#                     print('SELECT 3 -->update rating')
+#                     print('SELECT 4 -->update all') 
+#                     print('SELECT 5 -->save the changes and exit')
+#                     print('-'*50)
+#                     choice=int(input('Enter your choice:'))
+#                     print('-'*50)
+#                     match choice:
+#                         case 1:
+#                             name=input('Enter new product name:')
+#                             product.name=name
+#                             print('product name updated successfully.....!')
+#                         case 2:
+#                             price=float(input('Enter new product price:'))
+#                             product.price=price
+#                             print('product price updated successfully.....!')   
+#                         case 3:   
+#                             rating=float(input('Enter new product rating:'))
+#                             product.rating=rating
+#                             print('product rating updated successfully.....!')          
+#                         case 4:
+#                             name=input('Enter new product name:')
+#                             price=float(input('Enter new product price:'))
+#                             rating=float(input('Enter new product rating:'))
+#                             product.name=name
+#                             product.price=price
+#                             product.rating=rating
+#                             print('product details updated successfully.....!') 
+#                         case 5:
+#                             print('changes saved successfully.....!')
+#                             return
+#                         case _:
+#                             print('invalid choice.....!')
+#         print('product not found in the cart.....!')
+#         print('-'*50)
+
+#     def show_products(self):
+#         if (len(self.products) == 0):
+#             print('cart is empty.....!')
+#             return
+#         print('-'*40)
+#         print(' | ID | Name   | Price | Rating |')
+#         print('-'*40)
+#         for product in self.products:
+#             print(f' | {product.id} | {product.name} | {product.price} | {product.rating} |')
+#         print('-'*40)
+
+#     def search_product(self):
+#         if (len(self.products) == 0):
+#             print('cart is empty.....!')
+#             return
+#         print('-'*50)
+#         print('1 ---> search with id')
+#         print('2 ---> search with name')
+#         print('-'*50)
+#         choice=int(input('Enter your choice:'))
+#         print('-'*50)
+#         if choice == 1:
+#             id=int(input('Enter product id to search:'))
+#             for product in self.products:   
+#                 if product.id == id:
+#                     print('-'*40)
+#                     print(' | ID | Name   | Price | Rating |')
+#                     print('-'*40)
+#                     print(f' | {product.id} | {product.name} | {product.price} | {product.rating} |')
+#                     print('-'*40)
+#                     print('-'*50)
+#                     return
+#             print('product not found in the cart.....!')
+#             print('-'*50)
+#         elif choice == 2:
+#             name=input('Enter product name to search:')
+#             for product in self.products:
+#                 if len(name) <= 7:
+#                     name += ' ' * (7-len(name))
+#                 if product.name == name:
+#                     print('-'*40)
+#                     print(' | ID | Name   | Price | Rating |')
+#                     print('-'*40)
+#                     print(f' | {product.id} | {product.name} | {product.price} | {product.rating} |')
+#                     print('-'*40)
+#                     print('-'*50)
+#                     return
+#             print('product not found in the cart.....!')
+#             print('-'*50)
+
+#     def sort_price(self):
+#         if (len(self.products) == 0):
+#             print('No products in the cart.....!')
+#             return
+#         self.products.sort(key=lambda x: x.price, reverse=False)
+#         print('products sorted by price in ascending order.....!')
+#         print('-'*50)
+
+#     def sort_rating(self):
+#         if (len(self.products) == 0):
+#             print('No products in the cart.....!')
+#             return
+#         self.products.sort(key=lambda x: x.rating, reverse=True)
+#         print('products sorted by rating in descending order.....!')
+#         print('-'*50)
         
+# print('......$ Welcome to the Product Management System $......')
+# print('-'*50)
+# user=User()
+# while True:
+#     print('SELECT 1 -->Add product to the cart')
+#     print('SELECT 2 -->Remove product from the cart')
+#     print('SELECT 3 -->Update product details')
+#     print('SELECT 4 -->Show all products in the cart')
+#     print('SELECT 5 -->Search product in the cart')
+#     print('SELECT 6 -->Sort products by price')
+#     print('SELECT 7 -->Sort products by rating')
+#     print('SELECT 8 -->save and Exit')
+#     print('-'*50)
+#     choice=int(input('Enter your choice:'))
+#     print('-'*50)
+#     match choice:
+#         case 1: user.add_product()
+#         case 2: user.remove_product()
+#         case 3: user.Update_product()
+#         case 4: user.show_products()
+#         case 5: user.search_product()
+#         case 6: user.sort_price()
+#         case 7: user.sort_rating()
+#         case 8:
+#             print('Thank you for using the Product Management System. Goodbye!')
+#             break
+#         case _:
+#             print('Invalid choice. Please try again.')
+#             print('-'*50)
+
+#-------------------------------------------PDBC (Python Database Connectivity)-------------------------------------------------------#
+
+#import mysql driver
+# import mysql.connector
+# #bulding connection between database and python
+# c =  mysql.connector.connect(
+#     user='root',
+#     password='K@18022004',
+#     host='localhost',
+#     database='pdbc',
+# )
+# #creating cursor
+# crs=c.cursor()
+
+# H='''
+# create table student(
+#     id int primary key,
+#     name varchar(20),
+#     age int);
+
+# '''
+# #executing the query
+# crs.execute(H)
+
+# #save the changes parmently in the database
+# c.commit()
+
+# #close the connection
+# crs.close()
+# c.close()
+        
+
+# import mysql.connector
+# c =  mysql.connector.connect(
+#     user='root',
+#     password='K@18022004',
+#     host='localhost',
+#     database='pdbc',
+# )
+
+# crs=c.cursor()
+
+# H='''
+# insert into student values(1,'shiva',20),
+# (2,'likith',21),
+# (3,'kiran',22);
+
+# '''
+
+# crs.execute(H)
+
+# c.commit()
+# print('data inserted successfully')
+
+# crs.close()
+# c.close()
+
+# import mysql.connector
+# c =  mysql.connector.connect(
+#     user='root',
+#     password='K@18022004',
+#     host='localhost',
+#     database='pdbc',
+# )
+
+# crs=c.cursor()
+
+
+# H='''
+# insert into student values(%s,%s,%s);
+
+# '''
+# id=int(input('Enter id: '))
+# name=input('Enter name: ')
+# age=int(input('Enter age: '))
+
+# crs.execute(H,(id,name,age))
+
+# c.commit()
+# print('data inserted successfully')
+
+# crs.close()
+# c.close()
+
+# import mysql.connector
+# c =  mysql.connector.connect(
+#     user='root',
+#     password='K@18022004',
+#     host='localhost',
+#     database='pdbc',
+# )
+
+# crs=c.cursor()
+
+
+# H='''
+# select * from student;
+
+# '''
+# crs.execute(H)
+# b=crs.fetchall()
+# for i in b:
+#     print(i)
+
+# c.commit()
+# print('data inserted successfully')
+
+# crs.close()
+# c.close()
+
+#-------------------------------------mini project on PDBC (Python Database Connectivity)-------------------------------------------------------#
+
+import mysql.connector
+
+con = mysql.connector.connect(
+    user='root',
+    password='K@18022004',
+    host='localhost',
+    database='pdbc'
+)
+
+cur = con.cursor()
+
+cur.execute("""
+CREATE TABLE IF NOT EXISTS bank(
+    name VARCHAR(50),
+    acc_no Bigint PRIMARY KEY,
+    balance FLOAT
+)
+""")
+con.commit()
+
+
+class Bank:
+
+    def create_account(self):
+        name = input('Enter your name: ')
+        acc_no = int(input('Enter your account number: '))
+        balance = float(input('Enter initial deposit amount: '))
+
+        q = 'INSERT INTO bank VALUES(%s,%s,%s)'
+
+        try:
+            cur.execute(q, (name, acc_no, balance))
+            con.commit()
+            print('Account created successfully.....!')
+            print('-'*50)
+        except mysql.connector.IntegrityError:
+            print('Account number already exists.....!')
+            print('-'*50)
+
+    def deposit(self):
+        acc_no = int(input('Enter your account number: '))
+        amount = float(input('Enter amount to deposit: '))
+
+        if amount <= 0:
+            print('Invalid amount.....!')
+            return
+
+        q = 'UPDATE bank SET balance=balance+%s WHERE acc_no=%s'
+        cur.execute(q, (amount, acc_no))
+
+        if cur.rowcount > 0:
+            con.commit()
+            print('Amount deposited successfully.....!')
+            print('-'*50)
+        else:
+            print('Account not found.....!')
+            print('-'*50)
+
+    def withdraw(self):
+        acc_no = int(input('Enter your account number: '))
+        amount = float(input('Enter amount to withdraw: '))
+
+        if amount <= 0:
+            print('Invalid amount.....!')
+            return
+
+        q = 'SELECT balance FROM bank WHERE acc_no=%s'
+        cur.execute(q, (acc_no,))
+        res = cur.fetchone()
+
+        if res is not None:
+            balance = res[0]
+
+            if balance >= amount:
+                q = 'UPDATE bank SET balance=balance-%s WHERE acc_no=%s'
+                cur.execute(q, (amount, acc_no))
+                con.commit()
+                print('Amount withdrawn successfully.....!')
+                print('-'*50)
+            else:
+                print('Insufficient balance.....!')
+                print('-'*50)
+        else:
+            print('Account not found.....!')
+            print('-'*50)
+
+    def show_balance(self):
+        acc_no = int(input('Enter your account number: '))
+        q = 'SELECT * FROM bank WHERE acc_no=%s'
+        cur.execute(q, (acc_no,))
+        res = cur.fetchone()
+
+        if res is not None:
+            print(f'Name           : {res[0]}')
+            print(f'Account Number : {res[1]}')
+            print(f'Balance        : {res[2]}')
+            print('-'*50)
+        else:
+            print('Account not found.....!')
+            print('-'*50)
+
+    def money_transfer(self):
+        sender_acc_no = int(input('Enter sender account number: '))
+        receiver_acc_no = int(input('Enter receiver account number: '))
+        amount = float(input('Enter amount to transfer: '))
+
+        if amount <= 0:
+            print('Invalid amount.....!')
+            return
+
+        if sender_acc_no == receiver_acc_no:
+            print('Sender and Receiver accounts cannot be the same.....!')
+            return
+
+        cur.execute(
+            'SELECT * FROM bank WHERE acc_no=%s',
+            (receiver_acc_no,)
+        )
+
+        if cur.fetchone() is None:
+            print('Receiver account not found.....!')
+            print('-'*50)
+            return
+
+        cur.execute(
+            'SELECT balance FROM bank WHERE acc_no=%s',
+            (sender_acc_no,)
+        )
+
+        res = cur.fetchone()
+
+        try:
+            if res is not None:
+                balance = res[0]
+
+                if balance >= amount:
+
+                    cur.execute(
+                        'UPDATE bank SET balance=balance-%s WHERE acc_no=%s',
+                        (amount, sender_acc_no)
+                    )
+
+                    cur.execute(
+                        'UPDATE bank SET balance=balance+%s WHERE acc_no=%s',
+                        (amount, receiver_acc_no)
+                    )
+
+                    con.commit()
+                    print('Amount transferred successfully.....!')
+                    print('-'*50)
+                else:
+                    print('Insufficient balance.....!')
+                    print('-'*50)
+            else:
+                print('Sender account not found.....!')
+                print('-'*50)
+
+        except Exception:
+            con.rollback()
+            print('Transaction rolled back.....!')
+            print('-'*50)
+
+    def close_account(self):
+        acc_no = int(input('Enter your account number: '))
+
+        q = 'DELETE FROM bank WHERE acc_no=%s'
+        cur.execute(q, (acc_no,))
+        con.commit()
+
+        if cur.rowcount > 0:
+            print('Account closed successfully.....!')
+            print('-'*50)
+        else:
+            print('Account not found.....!')
+            print('-'*50)
+
+    def manager(self):
+        q = 'SELECT * FROM bank'
+        cur.execute(q)
+
+        res = cur.fetchall()
+
+        if len(res) == 0:
+            print('No accounts found.....!')
+            print('-'*50)
+        else:
+            for i in res:
+                print(i)
+            print('-'*50)
+print('......$ Welcome to the Bank Management System $......')
+print('-' * 50)
+b = Bank()
+while True:
+    print('SELECT 1 --> Create Account')
+    print('SELECT 2 --> Deposit')
+    print('SELECT 3 --> Withdraw')
+    print('SELECT 4 --> Show Balance')
+    print('SELECT 5 --> Money Transfer')
+    print('SELECT 6 --> Close Account')
+    print('SELECT 7 --> Manager')
+    print('SELECT 8 --> Exit')
+    print('-' * 50)
+    choice = int(input('Enter your choice: '))
+    print('-' * 50)
+    match choice:
+
+        case 1: b.create_account()
+        case 2: b.deposit()
+        case 3: b.withdraw()
+        case 4: b.show_balance()
+        case 5: b.money_transfer()
+        case 6: b.close_account()
+        case 7: b.manager()
+        case 8:
+            print('Thank you for using the Bank Management System. Goodbye!')
+            break
+
+        case _:
+            print('Invalid choice. Please try again.')
